@@ -13,7 +13,7 @@
 https://github.com/DialmasterOrg/Youtarr&#xD;
 https://hub.docker.com/r/dialmaster/youtarr/</Overview>
   <Category>Downloaders: MediaApp:Video</Category>
-  <WebUI>http://[IP]:[PORT:3011]/</WebUI>
+  <WebUI>http://[IP]:[PORT:3087]/</WebUI>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/DialmasterOrg/Youtarr/main/client/public/logo192.png</Icon>
   <ExtraParams>--add-host host.docker.internal:host-gateway</ExtraParams>
@@ -23,23 +23,17 @@ https://hub.docker.com/r/dialmaster/youtarr/</Overview>
   <DonateText/>
   <DonateLink>https://www.patreon.com/c/ChrisDial</DonateLink>
   <Requires>MariaDB</Requires>
-  <Config Name="Config" Target="/app/config" Default="" Mode="rw" Description="Stores Youtarr persistent config and files.&#13;&#10;Youtarr expects the container path to be /app/config, but the other value can be wherever you want to store the persistent configs in your UNRAID
-setup." Type="Path" Display="always" Required="true" Mask="false">/boot/youtarr/config</Config>
-  <Config Name="Youtube Video Data" Target="/data/" Default="" Mode="rw" Description="The location where Youtarr will download videos.&#13;&#10;Leave the container path as /data/, this is only for internal use by Youtarr" Type="Path" Display="always" Required="true" Mask="false
-">/boot/youtarr/media</Config>
+  <Config Name="Config" Target="/app/config" Default="" Mode="rw" Description="Stores Youtarr persistent config and files.&#13;&#10;Youtarr expects the container path to be /app/config, but the other value can be wherever you want to store the persistent configs in your UNRAID setup." Type="Path" Display="always" Required="true" Mask="false">/boot/youtarr/config</Config>
+  <Config Name="Youtube Video Data" Target="/data/" Default="" Mode="rw" Description="The location where Youtarr will download videos.&#13;&#10;Leave the container path as /data/, this is only for internal use by Youtarr" Type="Path" Display="always" Required="true" Mask="false">/boot/youtarr/media</Config>
   <Config Name="IN_DOCKER_CONTAINER" Target="IN_DOCKER_CONTAINER" Default="1" Mode="" Description="Required for UNRAID. Do not modify." Type="Variable" Display="always" Required="true" Mask="false">1</Config>
-  <Config Name="DATA_PATH" Target="DATA_PATH" Default="/data" Mode="" Description="Internal path for media storage inside Youtarr container. Must match the container path defined in the Youtube Video Data mapping" Type="Variable" Display="always" Required="true" Mask="false">/d
-ata</Config>
-  <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="The host address of your MariaDB instance. Likely the best option is to use the LAN IP of your UNRAID instance, eg, 192.168.X.X" Type="Variable" Display="always" Required="true" Mask="false">192.168.1.124
-</Config>
+  <Config Name="DATA_PATH" Target="DATA_PATH" Default="/data" Mode="" Description="Internal path for media storage inside Youtarr container. Must match the container path defined in the Youtube Video Data mapping" Type="Variable" Display="always" Required="true" Mask="false">/data</Config>
+  <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="The host address of your MariaDB instance. Likely the best option is to use the LAN IP of your UNRAID instance, eg, 192.168.X.X" Type="Variable" Display="always" Required="true" Mask="false">192.168.1.124</Config>
   <Config Name="DB_PORT" Target="DB_PORT" Default="" Mode="" Description="The port for your MariaDB instance" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
-  <Config Name="DB_USER" Target="DB_USER" Default="" Mode="" Description="The user for your MariaDB instance. This must already exist in your MariaDB instance and have full read/write access for your Youtarr DB." Type="Variable" Display="always" Required="true" Mask="false">you
-tarr</Config>
+  <Config Name="DB_USER" Target="DB_USER" Default="" Mode="" Description="The user for your MariaDB instance. This must already exist in your MariaDB instance and have full read/write access for your Youtarr DB." Type="Variable" Display="always" Required="true" Mask="false">youtarr</Config>
   <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">youtarpass</Config>
   <Config Name="DB_NAME" Target="DB_NAME" Default="" Mode="" Description="The name of your Youtarr DB in MariaDB." Type="Variable" Display="always" Required="true" Mask="false">youtarr</Config>
   <Config Name="Youtarr port mapping" Target="3011" Default="3087" Mode="tcp" Description="The external port where Youtarr will be available on UNRAID" Type="Port" Display="always" Required="true" Mask="false">3087</Config>
   <Config Name="AUTH_PRESET_USERNAME" Target="AUTH_PRESET_USERNAME" Default="admin" Mode="" Description="The username to be used to authenticate/login to Youtarr" Type="Variable" Display="always" Required="false" Mask="false">admin</Config>
-  <Config Name="AUTH_PRESET_PASSWORD" Target="AUTH_PRESET_PASSWORD" Default="ChangeMe123!" Mode="" Description="The initial password to be used to login to Youtarr.&#13;&#10;You can change this later in the Youtarr UI." Type="Variable" Display="always" Required="false" Mask="fa
-lse">ChangeMe123!</Config>
+  <Config Name="AUTH_PRESET_PASSWORD" Target="AUTH_PRESET_PASSWORD" Default="ChangeMe123!" Mode="" Description="The initial password to be used to login to Youtarr.&#13;&#10;You can change this later in the Youtarr UI." Type="Variable" Display="always" Required="false" Mask="false">ChangeMe123!</Config>
   <TailscaleStateDir/>
 </Container>
